@@ -103,3 +103,16 @@ y_pred_best = best_model.predict(X_test)
 # Évaluation des performances du meilleur modèle
 print(f"Mean Squared Error: {mean_squared_error(y_test, y_pred_best)}")
 print(f"R^2 Score: {r2_score(y_test, y_pred_best)}")
+
+future_data = pd.DataFrame({
+    'Open': [150.00],
+    'High': [155.00],
+    'Low': [149.00],
+    'Adj Close': [150.00],
+    'Volume': [100000000]
+})
+
+
+predicted_price = model.predict(future_data)
+
+print(f"Predicted Close Price: {predicted_price[0]}")
